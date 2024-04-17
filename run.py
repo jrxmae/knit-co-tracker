@@ -16,3 +16,9 @@ Asks user for name of the month and the sale target amount
 '''
 month = input('Enter the name of the month: ')
 monthly_target = int(input("Enter the sale target of the month: "))
+
+'''
+Asks user for the date and the sale amount made on the date inputted
+'''
+date = int(input("Enter today's date as ddmmyy: "))
+today_sale = int(input('Enter the sale amount made today: '))
