@@ -1,3 +1,8 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+'''
+A function made up of a welcome message for the user
+'''
+def welcome():
+    print('Welcome to Sale Target Tracker!')
+    print('With this program, you can input your daily sales and compare it to your monthly target')
+
+
