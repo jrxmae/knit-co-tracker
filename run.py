@@ -27,3 +27,4 @@ today_sale = int(input('Enter the sale amount made today: '))
 Compares the sale amount made on the day inputted to the sale target for the month
 '''
 print("You have made", today_sale, "out of", monthly_target)
+print("There is", monthly_target - today_sale, "left to make. Goodluck!")
