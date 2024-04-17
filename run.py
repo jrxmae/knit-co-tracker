@@ -6,3 +6,7 @@ def welcome():
     print('With this program, you can input your daily sales and compare it to your monthly target')
 
 
+'''
+Calls welcome function to print the welcome message to the user
+'''
+welcome()
