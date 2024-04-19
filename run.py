@@ -38,10 +38,15 @@ def user_input():
             monthly_target = input("Enter the sale target of the month: ")
 
     '''
-    Asks user for the date and the sale amount made on the date inputted
+    Asks user for the date and the sale amount made on the date inputted with validation
     '''
-    date = int(input("Enter today's date as ddmmyy: "))
+    date = input("Enter today's date as ddmmyy: ")
+    while len(date) != 6 or not date.isdigit():
+        print("Invalid date format. Please enter 6 digits in the form of ddmmyy.")
+        date = input("Enter today's date as ddmmyy: ")
+
     today_sale = int(input('Enter the sale amount made today: '))
+
     return (
         month,
         monthly_target,
