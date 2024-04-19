@@ -27,6 +27,7 @@ def user_input():
     ]:
         print("Invalid month.")
         month = input('Enter the name of the month: ')
+
     monthly_target = input("Enter the sale target of the month: ")
     while True:
         try:
@@ -41,8 +42,19 @@ def user_input():
     '''
     date = int(input("Enter today's date as ddmmyy: "))
     today_sale = int(input('Enter the sale amount made today: '))
+    return (
+        month,
+        monthly_target,
+        date,
+        today_sale
+    )
 
-def compare():
+def compare(
+    month,
+    monthly_target,
+    date,
+    today_sale
+):
     '''
     Compares the sale amount made on the day inputted to the sale target for the month and prints depending on if the target was reached or not
     '''
@@ -51,4 +63,24 @@ def compare():
     else:
         print("Congratulations! You passed the target by", today_sale - monthly_target)
         
+def loop():
+    '''
+    Function that prints and loops the program until user decides to exit
+    '''
+    welcome()
+    while True:
+        (
+            month,
+            monthly_target,
+            date,
+            today_sale
+        ) = user_input()
+        compare(
+            month,
+            monthly_target,
+            date,
+            today_sale
+        )
 
+if __name__ == "__main__":
+    loop()
