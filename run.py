@@ -1,6 +1,4 @@
-'''
-Setting today_sale and monthly_target to None so that the value given by the user may be used outside of choice 1 and 2
-'''
+#Setting today_sale and monthly_target to None so that the value given by the user may be used outside of choice 1 and 2
 today_sale = None
 monthly_target = None
 
@@ -23,10 +21,9 @@ def main_menu():
     print("3. Compare Sales to Target")
     print("4. Exit")
     choice = input("Enter your choice(1, 2, 3, 4): ")
+
+    #Asks user for the date and the sale amount made on the date inputted with validation
     if choice == "1":
-        '''
-        Asks user for the date and the sale amount made on the date inputted with validation
-        '''
         date = input("Enter today's date as ddmmyy: ")
         while len(date) != 6 or not date.isdigit():
             print("Invalid date format. Please enter 6 digits in the form of ddmmyy.")
@@ -46,10 +43,8 @@ def main_menu():
             today_sale
         )
 
+    #Asks user for name of the month and the sale target amount with input validation for both
     elif choice == "2":
-        '''
-        Asks user for name of the month and the sale target amount with input validation for both
-        '''
         month = input('Enter the name of the month: ')
         while month.lower() not in [
             "january",
@@ -83,6 +78,7 @@ def main_menu():
             monthly_target
         )
     
+    #Informs the user whether the target has been reached/what is left of the target by using the sale and target input
     elif choice == "3":
         if today_sale is None or monthly_target is None:
             print("Please enter value for today's sale and target of the month.")
@@ -93,9 +89,11 @@ def main_menu():
             remaining = monthly_target - today_sale
             print("There is",remaining,"left before you reach your target for the month!")
 
+    #Exits the program when the user is finished
     elif choice == "4":
         print("Exiting program.")
         return(choice)
+    #When the user does not choose any of the available options, a message will print to show them an example of an acceptable choice
     else:
         print("Invalid choice. Please enter 1, 2, 3 or 4.")
         return(choice)
