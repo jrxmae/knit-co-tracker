@@ -28,6 +28,14 @@ def user_input():
         print("Invalid month.")
         month = input('Enter the name of the month: ')
     monthly_target = input("Enter the sale target of the month: ")
+    while True:
+        try:
+            monthly_target = int(monthly_target)
+            break
+        except:
+            print("Invalid number for monthly target.")
+            monthly_target = input("Enter the sale target of the month: ")
+
     '''
     Asks user for the date and the sale amount made on the date inputted
     '''
