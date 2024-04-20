@@ -1,3 +1,5 @@
+import csv
+
 # Setting today_sale and monthly_target to None
 # so that the value given by the user may be used outside of choice 1 and 2
 today_sale = None
@@ -46,6 +48,7 @@ def main_menu():
                 today_sale = input('Enter the sale amount made today: ')
                 continue
         print("Sale for today(", date, ") has been inputted.")
+
         return (
             choice,
             date,
@@ -83,6 +86,7 @@ def main_menu():
                 monthly_target = input("Enter the sale target of the month: ")
                 continue
         print("Target for the month of", month, "has been set.")
+
         return (
             choice,
             month,
@@ -113,6 +117,14 @@ def main_menu():
         print("Invalid choice. Please enter 1, 2, 3 or 4.")
         return choice
 
+def save_data(date, today_sale, month, monthly_target, target_reached):
+    '''
+    Writes the user input into a csv file where they may view it later
+    '''
+    with open('sales_data.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([date, today_sale, month, monthly_target, target_reached])
+
 
 def loop():
     '''
@@ -123,6 +135,8 @@ def loop():
         choice = main_menu()
         if choice == "4":
             break
+        if choice == "1" or choice == "2":
+            save_data(today_sale, monthly_target)
 
 
 if __name__ == "__main__":
