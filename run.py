@@ -14,7 +14,7 @@ def welcome():
     print('With this program, you can input your daily sales '
           'and compare it to your monthly target.')
     print('Disclaimer: Be careful entering your data as there is '
-          'no changing/deleting it for now.')
+          'no changing or deleting it for now.')
 
 
 def main_menu():
