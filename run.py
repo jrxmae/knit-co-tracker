@@ -30,24 +30,24 @@ def main_menu():
     print("2. Add Target")
     print("3. Compare Sales to Target")
     print("4. Exit")
-    choice = input("Enter your choice(1, 2, 3, 4): ")
+    choice = input("Enter your choice(1, 2, 3, 4):\n")
 
     # Asks user for the date and the sale amount
     # made on the date inputted with validation
     if choice == "1":
-        date = input("Enter today's date as ddmmyy: ")
+        date = input("Enter today's date as ddmmyy:\n")
         while len(date) != 6 or not date.isdigit():
             print("Invalid date format.")
             ("Please enter 6 digits in the form of ddmmyy.")
-            date = input("Enter today's date as ddmmyy: ")
-        today_sale = input('Enter the sale amount made today: ')
+            date = input("Enter today's date as ddmmyy:\n")
+        today_sale = input('Enter the sale amount made today:\n')
         while True:
             try:
                 today_sale = int(today_sale)
                 break
             except Exception as error:
                 print("Invalid number for today's sale.")
-                today_sale = input('Enter the sale amount made today: ')
+                today_sale = input('Enter the sale amount made today:\n')
                 continue
         print("Sale for today(", date, ") has been inputted.")
 
@@ -60,7 +60,7 @@ def main_menu():
     # Asks user for name of the month and
     # the sale target amount with input validation for both
     elif choice == "2":
-        month = input('Enter the name of the month: ')
+        month = input('Enter the name of the month:\n')
         while month.lower() not in [
             "january",
             "february",
@@ -76,16 +76,16 @@ def main_menu():
             "december"
         ]:
             print("Invalid month.")
-            month = input('Enter the name of the month: ')
+            month = input('Enter the name of the month:\n')
 
-        monthly_target = input("Enter the sale target of the month: ")
+        monthly_target = input("Enter the sale target of the month:\n")
         while True:
             try:
                 monthly_target = int(monthly_target)
                 break
             except Exception as error:
                 print("Invalid number for monthly target.")
-                monthly_target = input("Enter the sale target of the month: ")
+                monthly_target = input("Enter the sale target of the month:\n")
                 continue
         print("Target for the month of", month, "has been set.")
 
