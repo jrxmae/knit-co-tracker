@@ -81,6 +81,8 @@ The following flowchart was designed using [Lucid Chart](https://lucidchart.com/
 
 ![Sale Target Tracker Flowchart](assets/readme-files/sale-target-tracker-flow.png)
 
+[Back to the top ⇧](#table-of-contents)
+
 ## Features
 
 ### Welcome Message
@@ -133,3 +135,76 @@ Choice #4 allows the user to exit out of the program which concludes the loop.
 
 ![Exit]()
 
+### CSV File
+
+After the user exits the program, the CSV file of what was inputted will open for the user to review.
+
+![CSV File]()
+
+[Back to the top ⇧](#table-of-contents)
+
+## Technologies Used
+
+### Language Used
+
+* [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Frameworks, Libraries and Programs Used
+
+* [GitPod](https://gitpod.io/) was used to write, edit, commit and push the code to GitHub.
+
+* [GitHub](https://github.com/) is where the project is pushed to, storing all it's data.
+
+* [Heroku](https://id.heroku.com) deployed the application.
+
+* [CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the code written in Python.
+
+* [Lucid Chart](https://lucidchart.com/) was used to make the flowchart to map out the program.
+
+[Back to the top ⇧](#table-of-contents)
+
+## Testing
+
+### Testing User Stories
+
+* As a user, I want to know exactly what the program can do.
+
+    - At the beginnig of the program, there is a welcome message.
+
+    - An explanation on what the program does is provided.
+
+    - A disclaimer on what the program cannot do yet is also provided.
+
+* As a user, I want to be able to clearly understand the options being given.
+
+    - Under the welcome message is the main menu displayed.
+
+    - There are 4 options given, describing exactly what they do.
+
+* As a user, I want to be able to easily choose options with each step.
+
+    - Each option is numbered.
+
+    - If input is incorrectly entered, the user is informed and instructed on how to correctly input.
+
+* As a user, I want to be able to read the directions clearly so that I may input data correctly.
+
+    - Before entering data, there is instructions on what should be inputted and whether there is a format to be followed.
+
+    - If an error occurs when inputting, the user is informed and given correct format/clear information on what should be entered as data.
+
+* As a user, I want to be informed when I have inputted data incorrectly.
+
+    - All inputs required have code validation.
+
+    - Program will loop after every error until correctly done.
+
+* As a user, I want to be able to input data as much as I want and leave the program when I am finished.
+
+    - After inputting sale amount/target data, it is possible to input more as the program loops back to the main menu after sale amount/target is inputted.
+
+    - Option #4 allows the user to leave the program completely.
+
+* As a user, I want to be able to view the data I inputted after exiting the program.
+
+    - Once the user exits the program, a CSV file will open with the date inputted.
