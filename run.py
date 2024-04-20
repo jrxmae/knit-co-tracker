@@ -120,19 +120,24 @@ def main_menu():
 
 def open_data():
     '''
-    Opens the CVS file after the user exits the program to show what they have inputted
+    Opens the CVS file after the user exits
+    the program to show what they have inputted
     '''
+
     try:
-        os.system("start sales_data.csv") # For Windows
+        # For Windows
+        os.system("start sales_data.csv")
     except Exception as error:
         try:
-            os.system("open sales_data.csv") # For macOS
+            # For macOS
+            os.system("open sales_data.csv")
         except Exception as error:
             try:
-                os.system("xdg-open sales_data.csv") # For Linux
+                # For Linux
+                os.system("xdg-open sales_data.csv")
             except Exception as error:
-                print("Failed to open CSV file. Please open 'sales_data.csv' manually.")
-
+                print("Failed to open CSV file. "
+                      "Please open 'sales_data.csv' manually.")
 
 
 def save_data(date, today_sale, month, monthly_target, target_reached):
