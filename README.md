@@ -1,32 +1,135 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Sale Target Tracker
 
-Welcome,
+![Sale Target Tracker mockup image](assets/readme-files/mockup-image.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Sale Target Tracker allows the user to compare their daily sales to the target of the month that they have been given.
 
-## Reminders
+After inputting the correct values, the program will inform the user whether they have reached the target or not.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+Visit the deployed application [here](https://sale-target-tracker-f4d20114c0f0.herokuapp.com/)
 
-## Creating the Heroku app
+## Table of Contents
+1. [User Experience (UX)](#user-experience-UX)
+    1. [Project Goals](#project-goals)
+    2. [User Stories](#user-stories)
+    3. [Data Model](#data-model)
+    4. [Flowchart](#flowchart)
+2. [Features](#features)
+    1. [Welcome Message](#welcome-message)
+    2. [Main Menu](#main-menu)
+    3. [Add Sale](#add-sale)
+    4. [Add Target](#add-target)
+    5. [Compare Sale to Target](#compare-sale-target)
+    6. [Exit Program](#exit-program)
+    7. [CSV File](#csv-file)
+3. [ Technologies Used](#technologies-used)
+    1. [Language Used](#language-used)
+    2. [Frameworks, Libraries and Programs Used](#frameworks-libraries-programs-used)
+4. [Testing](#testing)
+    1. [Testing User Stories](#testing-user-stories)
+    2. [Code Validation](#code-validation)
+    3. [Manual Testing](#manual-testing)
+5. [Deployment](#deployment)
+6. [Credits](#credits)
+7. [Acknowledgements](#acknowledgements)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+***
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User Experience (UX)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Project Goals
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* Display information about what the program does and any features that may not be available at the moment.
 
-Connect your GitHub repository and deploy as normal.
+* Provide clear options to the user to avoid confusion.
 
-## Constraints
+* Provide clear instructions and error messages that instructs user on how to correctly input data.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+* Allows the user to exit the program if they wish, otherwise it will continue running.
 
----
+* Prints a CSV file for the user to read the data they have inputted.
 
-Happy coding!
+### User Stories
+
+* As a user, I want to know exactly what the program can do.
+
+* As a user, I want to be able to clearly understand the options being given.
+
+* As a user, I want to be able to easily choose options with each step.
+
+* As a user, I want to be able to read the directions clearly so that I may input data correctly.
+
+* As a user, I want to be informed when I have inputted data incorrectly.
+
+* As a user, I want to be able to input data as much as I want and leave the program when I am finished.
+
+* As a user, I want to be able to view the data I inputted after exiting the program.
+
+### Data Model
+
+Simple options between 1 through 4 to navigate through the main menu.
+
+An easy text and number input request for both sale and target with clear instructions on how to input, with inputs being stored on a CSV file.
+
+After entering sale and target data, the program calculates between the sale value of the day and the target of the month. Which is also stored in the same CSV file.
+
+Data stored in the CSV file is displayed to the user at the end for reviewing.
+
+### Flowchart
+
+The following flowchart was designed using [Lucid Chart](https://lucidchart.com/) to map out the program.
+
+![Sale Target Tracker Flowchart](assets/readme-files/sale-target-tracker-flow.png)
+
+## Features
+
+### Welcome Message
+
+Displays a welcome message to the user, along with what the program does and a disclaimer.
+
+![Welcome Message](assets/readme-files/welcome-message.png)
+
+### Main Menu
+
+Displays a menu with four clearly described options to be chosen from.
+
+![Main Menu](assets/readme-files/main-menu.png)
+
+### Add Sale
+
+Choice #1 allows the user to add the date and the sale amount of that date and returns the input.
+
+![Add Sale](assets/readme-files/add-sale.png)
+
+When input is incorrect, user is informed and instructed.
+
+![Input Error](assets/readme-files/date-error.png)
+
+### Add Target
+
+Choice #2 allows the user to add the name of the month along with the target for the month and returns the input.
+
+![Add Target](assets/readme-files/add-target.png)
+
+When input is incorrect, user is informed and instructed.
+
+![Input Error](assets/readme-files/month-error.png)
+
+### Compare Sale to Target
+
+Choice #3 compares the data from user input and displays two different options to the user.
+
+![Target not reached](assets/readme-files/target-not-reached.png)
+
+![Target reached](assets/readme-files/target-reached.png)
+
+When choice #3 is chosen before inputting a sale and target, an error displays to the user and instructs them to add sale and target first.
+
+![Compare Error](assets/readme-files/compare-error.png)
+
+### Exit Program
+
+Choice #4 allows the user to exit out of the program which concludes the loop.
+
+![Exit]()
+
