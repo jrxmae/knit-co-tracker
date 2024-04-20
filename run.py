@@ -1,4 +1,5 @@
 import csv
+import os
 
 # Setting today_sale and monthly_target to None
 # so that the value given by the user may be used outside of choice 1 and 2
