@@ -1,17 +1,23 @@
-#Setting today_sale and monthly_target to None so that the value given by the user may be used outside of choice 1 and 2
+# Setting today_sale and monthly_target to None
+# so that the value given by the user may be used outside of choice 1 and 2
 today_sale = None
 monthly_target = None
+
 
 def welcome():
     '''
     A function made up of a welcome message for the user
     '''
     print('Welcome to Sale Target Tracker!')
-    print('With this program, you can input your daily sales and compare it to your monthly target.')
+    print('With this program, you can input your daily sales'
+          'and compare it to your monthly target.')
+
 
 def main_menu():
     '''
-    Displays main menu options to the user and sets today_sale and monthly_target globally so that it can be called outside of choice 1 and 2
+    Displays main menu options to the user
+    and sets today_sale and monthly_target globally
+    so that it can be called outside of choice 1 and 2
     '''
     global today_sale, monthly_target
 
@@ -22,28 +28,32 @@ def main_menu():
     print("4. Exit")
     choice = input("Enter your choice(1, 2, 3, 4): ")
 
-    #Asks user for the date and the sale amount made on the date inputted with validation
+    # Asks user for the date and the sale amount
+    # made on the date inputted with validation
     if choice == "1":
         date = input("Enter today's date as ddmmyy: ")
         while len(date) != 6 or not date.isdigit():
-            print("Invalid date format. Please enter 6 digits in the form of ddmmyy.")
+            print("Invalid date format.")
+            ("Please enter 6 digits in the form of ddmmyy.")
             date = input("Enter today's date as ddmmyy: ")
         today_sale = input('Enter the sale amount made today: ')
         while True:
             try:
                 today_sale = int(today_sale)
                 break
-            except:
+            except Exception as error:
                 print("Invalid number for today's sale.")
                 today_sale = input('Enter the sale amount made today: ')
-        print("Sale for today(",date,") has been inputted.")
-        return(
+                continue
+        print("Sale for today(", date, ") has been inputted.")
+        return (
             choice,
             date,
             today_sale
         )
 
-    #Asks user for name of the month and the sale target amount with input validation for both
+    # Asks user for name of the month and
+    # the sale target amount with input validation for both
     elif choice == "2":
         month = input('Enter the name of the month: ')
         while month.lower() not in [
@@ -68,36 +78,42 @@ def main_menu():
             try:
                 monthly_target = int(monthly_target)
                 break
-            except:
+            except Exception as error:
                 print("Invalid number for monthly target.")
                 monthly_target = input("Enter the sale target of the month: ")
-        print("Target for the month of",month,"has been set.")
-        return(
+                continue
+        print("Target for the month of", month, "has been set.")
+        return (
             choice,
             month,
             monthly_target
         )
-    
-    #Informs the user whether the target has been reached/what is left of the target by using the sale and target input
+
+    # Informs the user whether the target has been reached
+    # or what is left of the target by using the sale and target input
     elif choice == "3":
         if today_sale is None or monthly_target is None:
-            print("Please enter value for today's sale and target of the month.")
+            print("Please enter value for today's sale"
+                  "and target of the month.")
         elif today_sale > monthly_target:
             compare = today_sale - monthly_target
             print("Congratulations! You have passed the target by", compare)
         else:
             remaining = monthly_target - today_sale
-            print("There is",remaining,"left before you reach your target for the month!")
+            print("There is", remaining,
+                  "left before you reach your target for the month!")
 
-    #Exits the program when the user is finished
+    # Exits the program when the user is finished
     elif choice == "4":
         print("Exiting program.")
-        return(choice)
-    #When the user does not choose any of the available options, a message will print to show them an example of an acceptable choice
+        return choice
+    # When the user does not choose any of the available options
+    # a message will print to show them an example of an acceptable choice
     else:
         print("Invalid choice. Please enter 1, 2, 3 or 4.")
-        return(choice)
-    
+        return choice
+
+
 def loop():
     '''
     Function that prints and loops the program until user decides to exit
@@ -107,6 +123,7 @@ def loop():
         choice = main_menu()
         if choice == "4":
             break
+
 
 if __name__ == "__main__":
     loop()
