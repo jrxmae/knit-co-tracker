@@ -142,7 +142,8 @@ def open_data():
                 # For Linux
                 subprocess.call(["xdg-open", csv_file_path])
             except Exception as error:
-                print("Failed to open CSV file. Please open 'sales_data.csv' manually.")
+                print("Failed to open CSV file."
+                      " Please open 'sales_data.csv' manually.")
 
 
 def save_data(date, today_sale, month, monthly_target):
@@ -166,7 +167,8 @@ def save_data(date, today_sale, month, monthly_target):
 
         print("Data saved to the file successfully.")
     else:
-        print("Value for date, today's sale, month and monthly target required.")
+        print("Value for date, today's sale, "
+              "month and monthly target required.")
 
 
 def loop():
@@ -190,7 +192,10 @@ def loop():
         elif choice == "3":
             pass
         elif choice == "4":
-            date, today_sale, month, monthly_target = result[1], result[2], result[3], result[4]
+            (date,
+                today_sale,
+                month,
+                monthly_target) = result[1], result[2], result[3], result[4]
             save_data(date, today_sale, month, monthly_target)
             break
         else:
