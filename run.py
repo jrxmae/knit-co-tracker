@@ -1,5 +1,6 @@
 import csv
 import os
+import subprocess
 
 # Setting date, today_sale, month, monthly_target to None
 # so that the value given by the user may be used outside of choice 1 and 2
