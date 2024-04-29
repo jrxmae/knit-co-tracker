@@ -127,20 +127,21 @@ def open_data():
     the program to show what they have inputted
     '''
 
+    csv_file_path = "sales_data.csv"
+
     try:
         # For Windows
-        os.system("start sales_data.csv")
+        os.startfile(csv_file_path)
     except Exception as error:
         try:
             # For macOS
-            os.system("open sales_data.csv")
+            subprocess.call(["open", csv_file_path])
         except Exception as error:
             try:
                 # For Linux
-                os.system("xdg-open sales_data.csv")
+                subprocess.call(["xdg-open", csv_file_path])
             except Exception as error:
-                print("Failed to open CSV file. "
-                      "Please open 'sales_data.csv' manually.")
+                print("Failed to open CSV file. Please open 'sales_data.csv' manually.")
 
 
 def save_data(date, today_sale, month, monthly_target):
