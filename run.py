@@ -1,9 +1,11 @@
 import csv
 import os
 
-# Setting today_sale and monthly_target to None
+# Setting date, today_sale, month, monthly_target to None
 # so that the value given by the user may be used outside of choice 1 and 2
+date = None
 today_sale = None
+month = None
 monthly_target = None
 
 
@@ -21,10 +23,10 @@ def welcome():
 def main_menu():
     '''
     Displays main menu options to the user
-    and sets today_sale and monthly_target globally
+    and sets date, today_sale, month and monthly_target globally
     so that it can be called outside of choice 1 and 2
     '''
-    global today_sale, monthly_target
+    global date, today_sale, month, monthly_target
 
     print("Main Menu: ")
     print("1. Add Sale")
@@ -51,11 +53,10 @@ def main_menu():
                 today_sale = input('Enter the sale amount made today:\n')
                 continue
         print("Sale for today(", date, ") has been inputted.")
-
         return (
             choice,
             date,
-            today_sale
+            today_sale,
         )
 
     # Asks user for name of the month and
@@ -88,12 +89,11 @@ def main_menu():
                 print("Invalid number for monthly target.")
                 monthly_target = input("Enter the sale target of the month:\n")
                 continue
-        print("Target for the month of", month, "has been set.")
-
+        print("Target for the month of", month.capitalize(), "has been set.")
         return (
             choice,
             month,
-            monthly_target
+            monthly_target,
         )
 
     # Informs the user whether the target has been reached
@@ -113,12 +113,12 @@ def main_menu():
     # Exits the program when the user is finished
     elif choice == "4":
         print("Exiting program.")
-        return choice
+        return choice, date, today_sale, month, monthly_target
     # When the user does not choose any of the available options
     # a message will print to show them an example of an acceptable choice
     else:
         print("Invalid choice. Please enter 1, 2, 3 or 4.")
-        return choice
+        return choice, None, None
 
 
 def open_data():
@@ -143,14 +143,28 @@ def open_data():
                       "Please open 'sales_data.csv' manually.")
 
 
-def save_data(date, today_sale, month, monthly_target, target_reached):
+def save_data(date, today_sale, month, monthly_target):
     '''
     Writes the user input into a csv file where they may view it later
     '''
-    with open('sales_data.csv', 'a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow([date, today_sale, month,
-                        monthly_target, target_reached])
+    csv_file_path = "sales_data.csv"
+
+    header = ["Date", "Today's Sale", "Month", "Monthly Target"]
+
+    data_row = [date, today_sale, month, monthly_target]
+
+    if all(value is not None for value in data_row):
+        with open(csv_file_path, 'a', newline='') as file:
+            writer = csv.writer(file)
+
+            if file.tell() == 0:
+                writer.writerow(header)
+
+            writer.writerow(data_row)
+
+        print("Data saved to the file successfully.")
+    else:
+        print("Value for date, today's sale, month and monthly target required.")
 
 
 def loop():
@@ -159,11 +173,26 @@ def loop():
     '''
     welcome()
     while True:
-        choice = main_menu()
-        if choice == "4":
+        # Data from user input from main menu is stored in the variable result
+        result = main_menu()
+
+        if result is None:
+            continue
+
+        choice = result[0]
+
+        if choice == "1":
+            date, today_sale = result[1], result[2]
+        elif choice == "2":
+            month, monthly_target = result[1], result[2]
+        elif choice == "3":
+            pass
+        elif choice == "4":
+            date, today_sale, month, monthly_target = result[1], result[2], result[3], result[4]
+            save_data(date, today_sale, month, monthly_target)
             break
-        if choice == "1" or choice == "2":
-            save_data(today_sale, monthly_target)
+        else:
+            print("Invalid choice. Please enter 1, 2, 3 or 4.")
 
 
 if __name__ == "__main__":

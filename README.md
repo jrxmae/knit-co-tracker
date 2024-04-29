@@ -208,3 +208,11 @@ After the user exits the program, the CSV file of what was inputted will open fo
 * As a user, I want to be able to view the data I inputted after exiting the program.
 
     - Once the user exits the program, a CSV file will open with the date inputted.
+
+### Code Validation
+
+### Manual Testing
+
+## Deployment
+
+With the use of [Heroku](https://id.heroku.com/), the application was deployed using the following steps:
