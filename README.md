@@ -21,7 +21,6 @@ Visit the deployed application [here](https://sale-target-tracker-f4d20114c0f0.h
     4. [Add Target](#add-target)
     5. [Compare Sale to Target](#compare-sale-target)
     6. [Exit Program](#exit-program)
-    7. [CSV File](#csv-file)
 3. [ Technologies Used](#technologies-used)
     1. [Language Used](#language-used)
     2. [Frameworks, Libraries and Programs Used](#frameworks-libraries-programs-used)
@@ -62,8 +61,6 @@ Visit the deployed application [here](https://sale-target-tracker-f4d20114c0f0.h
 * As a user, I want to be informed when I have inputted data incorrectly.
 
 * As a user, I want to be able to input data as much as I want and leave the program when I am finished.
-
-* As a user, I want to be able to view the data I inputted after exiting the program.
 
 ### Data Model
 
@@ -133,13 +130,13 @@ When choice #3 is chosen before inputting a sale and target, an error displays t
 
 Choice #4 allows the user to exit out of the program which concludes the loop.
 
-![Exit]()
+![Exit](assets/readme-files/exit-program.png)
 
-### CSV File
+### Future Features
 
-After the user exits the program, the CSV file of what was inputted will open for the user to review.
+**Modify Data Input**
 
-![CSV File]()
+In the future, there is a plan to implement a feature that will allow the user to modify the previous data that has been inputted. This will be a helpful feature for the user in case there was a mistake made regarding the input.
 
 [Back to the top ⇧](#table-of-contents)
 
@@ -205,14 +202,96 @@ After the user exits the program, the CSV file of what was inputted will open fo
 
     - Option #4 allows the user to leave the program completely.
 
-* As a user, I want to be able to view the data I inputted after exiting the program.
-
-    - Once the user exits the program, a CSV file will open with the date inputted.
-
 ### Code Validation
 
+The [Code Institute Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the code, to correct any mistake e.g indentation, long lines of code.
+
+![Code Validation](assets/readme-files/code-validation.png)
+
 ### Manual Testing
+
+<table>
+    <tr>
+        <th>Feature</th>
+        <th>Outcome</th>
+        <th>Example</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td>Choice</td>
+        <td>Validate if value is empty/incorrect</td>
+        <td><img src=assets/readme-files/choice-empty.png alt="Choice is empty/incorrect"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>1. Add Sale</td>
+        <td>Validate if value is empty/incorrect</td>
+        <td><img src=assets/readme-files/sale-empty.png alt="Add Sale option is empty/incorrect"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>2. Add Target</td>
+        <td>Validate if value is empty/incorrect</td>
+        <td><img src=assets/readme-files/target-empty.png alt="Add Target option is empty/incorrect"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>3. Compare Sales to Target</td>
+        <td>Validate if value is empty/incorrect</td>
+        <td><img src=assets/readme-files/compare-empty.png alt="Compare sales to target option is empty/incorrect"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=2>4. Exit</td>
+        <td rowspan=2>Exit the program</td>
+        <td><img src=assets/readme-files/exit-empty.png alt="Exiting the program with no value input"></td>
+        <td rowspan=2>Pass</td>
+    </tr>
+    <tr>
+        <td><img src=assets/readme-files/exit-success.png alt="Exiting program successful"></td>
+    </tr>
+</table>
 
 ## Deployment
 
 With the use of [Heroku](https://id.heroku.com/), the application was deployed using the following steps:
+
+1. Write code using GitPod.
+2. Commit changes and push them to GitHub.
+3. Go to Heroku website and log in.
+4. Create a new app from the Heroku dashboard, create a name for your app and choose a region.
+5. Once created, go to 'Settings' and then to 'Buildpacks'.
+6. Select 'python' from the buildpack options.
+7. Add 'nodejs' buildpack after.
+8. Go to 'Deploy' and scroll down to 'Deployment method'.
+9. Click 'Connect to GitHub' and then choose the correct repository.
+10. Choose between 'Automatic Deploy' and 'Manual Deploy'.
+
+[Back to the top ⇧](#table-of-contents)
+
+## Credits
+
+### Content
+
+* Inspiration for the sale target tracker is from my job. I work in retail and thought it would be a useful tool for me.
+
+### Code
+
+* [Stack Overflow](https://stackoverflow.com/) was used to comprehend errors and to understand how to better apply/fix them.
+
+* [W3Schools](https://www.w3schools.com/) was used for the same as Stack Overflow but also to specifically learn how to write code for saving the user input data onto a CSV file.
+
+* [Code Institute](https://codeinstitute.net/ie/) has taught me what I have been able to use in making this program, especially regarding deploying the program.
+
+* [Sample project from mentor](https://github.com/josswe26/macro-calculator) was used as a reference when writing the 'Read Me' file.
+
+[Back to the top ⇧](#table-of-contents)
+
+## Acknowledgements
+
+* Thank you to my family and friends for always supporting and encouraging me whenever I was feeling down.
+
+* Grateful to my mentor, Marcel, for his continuous support and patience with me throughout this course and project.
+
+* Appreciate Code Institute and the Slack community for providing me with the skills to make a program like this and the great bond the community have made.
+
